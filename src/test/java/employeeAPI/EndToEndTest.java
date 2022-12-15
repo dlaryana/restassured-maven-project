@@ -45,7 +45,6 @@ public class EndToEndTest {
 		//update first employee
 		response = UpdateEmployee( empId, "Smith", "8000");
 		Assert.assertEquals(200, response.statusCode());
-		//System.out.println(response.getBody().asString());
 		
 		//validate the name has been changed to Smith           
 		response = GetSingleEmployee(empId);
@@ -82,7 +81,6 @@ public class EndToEndTest {
 			
 		RestAssured.baseURI = this.baseURI;
 		request = RestAssured.given();
-		//response = request.param("id", empId).get("employees");
 		response = request.get("employees/" + empId);
 		
 		return response;
